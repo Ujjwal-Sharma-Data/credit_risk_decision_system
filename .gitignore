@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+myenv/
+.env/
+
+# OS files
+.DS_Store
+
+# Large files (optional)
+*.csv
