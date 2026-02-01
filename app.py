@@ -4,12 +4,21 @@ import numpy as np
 import joblib
 import shap
 import matplotlib.pyplot as plt
+import os
 
 @st.cache_resource
 def load_artifacts():
-    model = joblib.load("/Users/ujjwalsharma/Desktop/credit_risk_decision_system/model/lgb_model.pkl")
-    preprocessor = joblib.load("/Users/ujjwalsharma/Desktop/credit_risk_decision_system/model/preprocessor.pkl")
+    # directory where app.py is located
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+
+    model_path = os.path.join(base_dir, "model", "lgb_model.pkl")
+    preprocessor_path = os.path.join(base_dir, "model", "preprocessor.pkl")
+
+    model = joblib.load(model_path)
+    preprocessor = joblib.load(preprocessor_path)
+
     return model, preprocessor
+
 
 model, preprocessor = load_artifacts()
 
